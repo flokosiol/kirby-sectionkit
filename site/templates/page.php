@@ -9,7 +9,7 @@
     <?php 
       foreach($page->contentlist()->yaml() as $contentUid) {
         if ($content = $page->find($contentUid)) {
-          echo $content->title();
+          snippet('content/' . $content->intendedTemplate(), array('content' => $content));
         }
       }
     ?>

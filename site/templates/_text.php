@@ -1,3 +1,1 @@
-<div class="text">
-  <?php echo $page->text()->kirbytext() ?>
-</div>
+<?php go($page->parent()->url()) ?>

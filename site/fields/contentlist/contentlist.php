@@ -104,6 +104,7 @@ class contentlistField extends BaseField {
  * Is page a page?
  */
 function contentlist_page_is_page($page) {
+  // return $page->isVisible();
   if ($page->intendedTemplate() == 'page') {
     return TRUE;
   }
@@ -113,7 +114,9 @@ function contentlist_page_is_page($page) {
 /**
  * Is page a content element?
  */
-function contentlist_page_is_content_type($page) {
+function contentlist_page_is_content($page) {
+
+  // Blueprint starts with _
   if (strpos($page->intendedTemplate(), '_') === 0) {
     return TRUE;
   }
@@ -149,7 +152,7 @@ function contentlist_save_list_values($page, $contentlist) {
  */
 kirby()->hook('panel.page.create', function($page) {
 
-  if (contentlist_page_is_content_type($page)) {
+  if (contentlist_page_is_content($page)) {
     $contentlist = contentlist_get_list_values($page->parent());
     $contentlist[] = $page->uid();
     contentlist_save_list_values($page->parent(), $contentlist);
@@ -172,8 +175,8 @@ kirby()->hook('panel.page.create', function($page) {
  */
 kirby()->hook('panel.page.update', function($page) {
   
-  // Content is updated
-  if (contentlist_page_is_content_type($page)) {
+  // Content gets updated
+  if (contentlist_page_is_content($page)) {
     $contentlist = contentlist_get_list_values($page->parent());
     if (!in_array($page->uid(), $contentlist)) {
       $contentlist[] = $page->uid();
@@ -189,7 +192,7 @@ kirby()->hook('panel.page.update', function($page) {
  */
 kirby()->hook('panel.page.delete', function($page) {
 
-  if (contentlist_page_is_content_type($page)) {
+  if (contentlist_page_is_content($page)) {
     $contentlist = contentlist_get_list_values($page->parent());
     if (($key = array_search($page->uid(), $contentlist)) !== false) {
       unset($contentlist[$key]);

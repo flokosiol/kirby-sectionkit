@@ -7,3 +7,7 @@
   pointer-events: auto;
   cursor: move;
 }
+
+.contentlist .hgroup-options {
+  padding-bottom: 3em;
+}
