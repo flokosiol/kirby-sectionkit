@@ -7,6 +7,8 @@
       <?php echo $page->text()->kirbytext() ?>
     </div>
 
+    <?php sections()->render() ?>
+
   </main>
 
 <?php snippet('footer') ?>

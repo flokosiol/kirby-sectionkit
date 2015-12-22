@@ -6,9 +6,8 @@ files:
   sortable: true
 fields:
   title: 
-    label: Title
+    label: Text Section Title
     type: text
-
   text:
     label: Text
     type:  textarea

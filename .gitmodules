@@ -4,3 +4,6 @@
 [submodule "panel"]
 	path = panel
 	url = https://github.com/getkirby/panel.git
+[submodule "site/fields/subpagelist"]
+	path = site/fields/subpagelist
+	url = https://github.com/flokosiol/kirby-subpagelist.git

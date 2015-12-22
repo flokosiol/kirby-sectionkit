@@ -1,0 +1,38 @@
+<?php if(!defined('KIRBY')) exit ?>
+
+title: Page
+pages: 
+  template: 
+    - page
+    - _text
+    - _image
+  hide: true
+files: true
+fields:
+  title:
+    label: Title
+    type:  text
+    width: 3/4
+  menu:
+    label: Menu Settings
+    type: checkbox
+    text: Show in Menu
+    width: 1/4
+  # contentlist:
+  #   label: Sections
+  #   type: contentlist
+  #   readonly: true
+  #   translate: false
+  sections:
+    label: Sections
+    type:  subpagelist
+    filter:
+      filterBy: template
+      filterMethod: !=
+      filterValue: page
+  subpages:
+    label: Subpages
+    type:  subpagelist
+    filter:
+      visible: true
+      template: page

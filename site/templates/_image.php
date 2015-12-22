@@ -1,12 +1,7 @@
-<?php snippet('header') ?>
-
-  <main class="main" role="main">
-
-    <div class="text">
-      <h1><?php echo $page->title()->html() ?></h1>
-      <?php echo $page->text()->kirbytext() ?>
-    </div>
-
-  </main>
-
-<?php snippet('footer') ?>
+<?php if ($page->hasImages()): ?>
+  <?php foreach($page->images()->sortBy('sort', 'asc') as $image): ?>
+    <figure>
+      <img src="<?php echo $image->url() ?>" alt="<?php echo $image->name() ?>" >
+    </figure>
+  <?php endforeach ?>
+<?php endif ?>
