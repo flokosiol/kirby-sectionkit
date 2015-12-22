@@ -26,5 +26,5 @@ Menu: 1
 Contentlist: 
 
 - text
-- bild
+- image
 - text-2
