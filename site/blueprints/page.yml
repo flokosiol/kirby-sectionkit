@@ -19,7 +19,7 @@ fields:
     text: Show in Menu
     width: 1/4
   # contentlist:
-  #   label: Sections
+  #   label: Content
   #   type: contentlist
   #   readonly: true
   #   translate: false
@@ -34,5 +34,5 @@ fields:
     label: Subpages
     type:  subpagelist
     filter:
-      visible: true
+      # visible: true
       template: page
