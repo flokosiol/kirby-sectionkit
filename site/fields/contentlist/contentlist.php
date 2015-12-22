@@ -115,8 +115,6 @@ function contentlist_page_is_page($page) {
  * Is page a content element?
  */
 function contentlist_page_is_content($page) {
-
-  // Blueprint starts with _
   if (strpos($page->intendedTemplate(), '_') === 0) {
     return TRUE;
   }
@@ -158,7 +156,7 @@ kirby()->hook('panel.page.create', function($page) {
     contentlist_save_list_values($page->parent(), $contentlist);
   }
 
-  if (contentlist_page_is_page($page)) {
+  if (contentlist_page_is_page($page) && $page->isInvisible()) {
     try {
       $page->toggle('last');
     } 
@@ -183,7 +181,7 @@ kirby()->hook('panel.page.update', function($page) {
       contentlist_save_list_values($page->parent(), $contentlist);  
     }
 
-    // content pages are alsways invisible
+    // keep content pages alsways invisible
     if ($page->isVisible()) {
       try {
         $page->toggle('last');
@@ -191,6 +189,16 @@ kirby()->hook('panel.page.update', function($page) {
       catch(Exception $e) {
         return response::error($e->getMessage());
       }   
+    }
+  }
+
+  // keep pages always visible
+  else if (contentlist_page_is_page($page) && $page->isInvisible()) {
+    try {
+      $page->toggle('last');
+    } 
+    catch(Exception $e) {
+      return response::error($e->getMessage());
     }
   }
   
