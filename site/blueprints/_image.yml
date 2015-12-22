@@ -1,0 +1,16 @@
+<?php if(!defined('KIRBY')) exit ?>
+
+title: » Bild
+pages: false
+files: 
+  sortable: true
+  fields:
+    caption:
+      label: Bildunterschrift
+      type: textarea
+    info: info
+fields:
+  title: 
+    label: Title
+    type: text
+  
