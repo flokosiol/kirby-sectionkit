@@ -182,6 +182,16 @@ kirby()->hook('panel.page.update', function($page) {
       $contentlist[] = $page->uid();
       contentlist_save_list_values($page->parent(), $contentlist);  
     }
+
+    // content pages are alsways invisible
+    if ($page->isVisible()) {
+      try {
+        $page->toggle('last');
+      } 
+      catch(Exception $e) {
+        return response::error($e->getMessage());
+      }   
+    }
   }
   
 });
