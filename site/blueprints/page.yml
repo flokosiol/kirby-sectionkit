@@ -18,18 +18,11 @@ fields:
     type: checkbox
     text: Show in Menu
     width: 1/4
-  # contentlist:
-  #   label: Content
-  #   type: contentlist
-  #   readonly: true
-  #   translate: false
-  sections:
-    label: Sections
-    type:  subpagelist
-    filter:
-      filterBy: template
-      filterMethod: !=
-      filterValue: page
+  contentlist:
+    label: Content
+    type: contentlist
+    readonly: true
+    translate: false
   subpages:
     label: Subpages
     type:  subpagelist

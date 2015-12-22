@@ -7,15 +7,11 @@
     </div>
 
     <?php 
-      // foreach($page->contentlist()->yaml() as $contentUid) {
-      //   if ($content = $page->find($contentUid)) {
-      //     echo $content->title();
-      //   }
-      // }
-    
-      // Make use of the sections plugin 
-      // https://github.com/fenixkim/KirbySections
-      sections()->render();
+      foreach($page->contentlist()->yaml() as $contentUid) {
+        if ($content = $page->find($contentUid)) {
+          echo $content->title();
+        }
+      }
     ?>
 
   </main>
