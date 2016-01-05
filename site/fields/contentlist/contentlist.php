@@ -204,6 +204,22 @@ kirby()->hook('panel.page.update', function($page) {
   
 });
 
+/**
+ * Hook panel.page.move
+ */
+kirby()->hook('panel.page.move', function($page) {
+  
+  // Content gets moved (slug changed)
+  if (contentlist_page_is_content($page)) {
+    $contentlist = contentlist_get_list_values($page->parent());
+    if (!in_array($page->uid(), $contentlist)) {
+      $contentlist[] = $page->uid();
+      contentlist_save_list_values($page->parent(), $contentlist);  
+    }
+  }
+  
+});
+
 
 /**
  * Hook panel.page.delete
