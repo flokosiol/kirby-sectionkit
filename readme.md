@@ -1,4 +1,11 @@
-# Kirby Sectionkit
+# Kirby Sectionkit – DEPRICATED
+
+This repository is no longer maintained, since there are two great plugins which can be used to achieve the same result in a more robust way:
+
++ [Kirby Modules Plugin](https://github.com/getkirby-plugins/modules-plugin)
++ [Kirby Modules Field](https://github.com/lukaskleinschmidt/kirby-field-modules)
+
+## Introduction
 
 This is a modified version of Kirby's [Starterkit](https://github.com/getkirby/starterkit) which uses pages as 
 
